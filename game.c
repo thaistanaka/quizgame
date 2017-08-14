@@ -57,11 +57,11 @@ void wfalha (int falha)
 
 void imprimeScore (int score,int fase)
 {
-    printf("<h2>PontuaÁ„o: %d</h2>", score);
+    printf("<h2>Pontua√ß√£o: %d</h2>", score);
     printf("<h3>Fase: %d/5</h3>",fase+1);
 }
 
-//imprime as opÁıes de jogos
+//imprime as op√ß√µes de jogos
 void imprime ()
 {
     printf("<div id=\"opcoes\">");
@@ -110,7 +110,7 @@ void sort (int score)
     fclose(arq);
     arq=NULL;
 
-    //ordenaÁ„o conforme o score
+    //ordena√ß√£o conforme o score
     for (k=1; k<i; k++)
     {
         for (j=0; j<i-k; j++)
@@ -135,7 +135,7 @@ void sort (int score)
     printf("<h1 align=\"center\">Recordes</h1>");
     printf("<div align=\"center\" class=\"fala\">");
     printf("<h2 align=\"center\" style=\"color:red;\">Total: %d</h2>",score);
-    //impress„o dos dados do top 10
+    //impress√£o dos dados do top 10
     if(i>=10)
     {
         for(k=0; k<10; k++)
@@ -168,8 +168,8 @@ void sort (int score)
     printf("</div>");
 }
 
-//MÛdulo que fornece dicas sobre o jogo que o usu·rio precisa adivinhar.
-//Conforme o usu·rio erra, novas dicas ser„o exibidas.
+//M√≥dulo que fornece dicas sobre o jogo que o usu√°rio precisa adivinhar.
+//Conforme o usu√°rio erra, novas dicas ser√£o exibidas.
 void jogosDica(int falha, int jogo)
 {
 
@@ -240,7 +240,7 @@ void jogosDica(int falha, int jogo)
     }
 }
 
-//pontuaÁ„o de cada fase
+//pontua√ß√£o de cada fase
 int Resultado(int falha)
 {
     int score=0;
@@ -264,7 +264,7 @@ int Resultado(int falha)
     return score;
 }
 
-//Esse mÛdulo recebe: vetor dos jogos j· sorteados, fase em que o jogo est·.
+//Esse m√≥dulo recebe: vetor dos jogos j√° sorteados, fase em que o jogo est√°.
 int sorteio(int *m, int fase)
 {
     int i, sort, ja;
@@ -289,28 +289,28 @@ int sorteio(int *m, int fase)
 int main()
 {
 
-    //Impedir que os mesmos jogos sejam sorteados ‡ cada nova execuÁ„o.
+    //Impedir que os mesmos jogos sejam sorteados √† cada nova execu√ß√£o.
     srand(time(NULL));
 
-    //DeclaraÁ„o de vari·veis para abertura de arquivos.
+    //Declara√ß√£o de vari√°veis para abertura de arquivos.
     FILE *nomeArq, *jogorodW, *fasesArq, *fasesArqW, *jogorodR, *falhaArq, *falhaArqW, *scoreArq, *recordArq;
 
-    //DeclaraÁ„o da vari·vel jogador.
+    //Declara√ß√£o da vari√°vel jogador.
     jogador jog;
 
-    //Criar ponteiro que aponta para o conte˙do da barra do browser.
+    //Criar ponteiro que aponta para o conte√∫do da barra do browser.
     char *pData = NULL;
 
     //Criar ponteiro e string para o nome inserido pelo jogador.
     char *insertName, nome[101];
 
-    //DeclaraÁ„o de vari·veis em geral.
+    //Declara√ß√£o de vari√°veis em geral.
     int no_repeat[n_fases], fase, i, jogo[n_fases], falha, respostauser;
 
-    //Ponteiro pData aponta para o conte˙do da barra do browser.
+    //Ponteiro pData aponta para o conte√∫do da barra do browser.
     pData = getenv("QUERY_STRING");
 
-    //Estrutura do "cabeÁalho" da p·gina HTML.
+    //Estrutura do "cabe√ßalho" da p√°gina HTML.
     printf("%s%c%c\n", "Content-Type:text/html;charset=ISO-8859-1", 13, 10);
     printf("<!DOCTYPE html>");
     printf("<html lang=\"pt-BR\">");
@@ -318,12 +318,12 @@ int main()
     printf("<meta charset=\"ISO-8859-1\">");
     printf("<link href=\"https://fonts.googleapis.com/css?family=Press+Start+2P|VT323\" rel=\"stylesheet\">");
     printf("<link href=\"../css/qualojogo2.css\" rel=\"stylesheet\" type=\"text/css\"/>");
-    printf("<title>Qual È o jogo?</title>");
+    printf("<title>Qual √© o jogo?</title>");
     printf("</head>");
     printf("<body>");
     printf("<div id=\"main\">");
 
-    //Se o conte˙do da barra for diferente de NULL...
+    //Se o conte√∫do da barra for diferente de NULL...
     if(pData != NULL)
     {
 
@@ -331,13 +331,13 @@ int main()
         if ((sscanf(pData, "nome=%s", nome)) == 1)
         {
 
-            //Como isso significa que o jogo acabou de comeÁar, mude falha para 0.
+            //Como isso significa que o jogo acabou de come√ßar, mude falha para 0.
             falha = 0;
 
             //Sobrescreva o arquivo falhas.txt com o 0.
             wfalha(falha);
 
-            //Como o jogo acabou de comeÁar, mude fase para 0.
+            //Como o jogo acabou de come√ßar, mude fase para 0.
             fase = 0;
 
             //Sobrescreva o arquivo fas.txt com o 0.
@@ -365,13 +365,13 @@ int main()
             fclose(nomeArq);
             nomeArq = NULL;
 
-            //Como ainda È o comeÁo do jogo, definir a pontuaÁ„o para 0.
+            //Como ainda √© o come√ßo do jogo, definir a pontua√ß√£o para 0.
             jog.score = 0;
 
-            //Escrever a pontuaÁ„o 0 no arquivo score.txt
+            //Escrever a pontua√ß√£o 0 no arquivo score.txt
             wscore(jog.score);
 
-            //Abrir o arquivo que contÈm os jogos que ser„o exibidos.
+            //Abrir o arquivo que cont√©m os jogos que ser√£o exibidos.
             jogorodW = fopen("./qualojogo/jogrodada.txt", "w");
 
             //Sorteia 5 jogos para 5 fases e imprime no arquivo jogrodada.txt
@@ -390,7 +390,7 @@ int main()
             if (jogorodR != NULL)
             {
 
-                //Armazene os n˙meros l· encontrados no vetor jogos.
+                //Armazene os n√∫meros l√° encontrados no vetor jogos.
                 for (i = 0; i <= fase; i++)
                 {
                     fscanf(jogorodR, "%d\n", &jogo[i]);
@@ -404,10 +404,10 @@ int main()
 
             imprime();
 
-        } //Aqui termina a execuÁ„o incial apÛs o usu·rio inserir o nome.
+        } //Aqui termina a execu√ß√£o incial ap√≥s o usu√°rio inserir o nome.
         else
         {
-            //ApÛs o usu·rio ter feito uma escolha...
+            //Ap√≥s o usu√°rio ter feito uma escolha...
             if (sscanf(pData, "opcao=%d", &respostauser) == 1)
             {
 
@@ -428,7 +428,7 @@ int main()
                 if (jogorodR != NULL)
                 {
 
-                    //Armazene os n˙meros l· encontrados no vetor jogos.
+                    //Armazene os n√∫meros l√° encontrados no vetor jogos.
                     for (i = 0; i <n_fases; i++)
                     {
                         fscanf(jogorodR, "%d\n", &jogo[i]);
@@ -443,7 +443,7 @@ int main()
                 //Abra o arquivo falhas.txt
                 falhaArq = fopen("./qualojogo/falhas.txt", "r");
 
-                //Armazene o n˙mero l· encontrado na vari·vel falha.
+                //Armazene o n√∫mero l√° encontrado na vari√°vel falha.
                 if (falhaArq != NULL)
                 {
                     fscanf(falhaArq, "%d\n", &falha);
@@ -453,12 +453,12 @@ int main()
                 fclose(falhaArq);
                 falhaArq = NULL;
 
-                //Abra o arquivo que contÈm a pontuaÁ„o.
+                //Abra o arquivo que cont√©m a pontua√ß√£o.
                 jog.score=rscore();
 
 
 
-                //Se o n˙mero de falhas for menor que 4...
+                //Se o n√∫mero de falhas for menor que 4...
                 if (falha < 4)
                 {
                     if (respostauser==jogo[fase])
@@ -485,10 +485,10 @@ int main()
                     }
                 }
 
-                //Quando o usu·rio alcanÁar o limite de falhas...
+                //Quando o usu√°rio alcan√ßar o limite de falhas...
                 if (falha == 4)
                 {
-                    //Ir para a prÛxima fase.
+                    //Ir para a pr√≥xima fase.
                     fase++;
 
                     //Sobrescrever o arquivo fas.txt.
@@ -526,9 +526,9 @@ int main()
                     imprime();
                 }
             }
-            //Fechamento da condicional de pÛs escolha.
+            //Fechamento da condicional de p√≥s escolha.
 
-            else //se o jogador n„o tiver inserido o nome
+            else //se o jogador n√£o tiver inserido o nome
             {
                 printf("<div id=\"outerouter\"><div id=\"outer\">");
                 printf("<h1 align=\"center\">Por favor, insira seu nome!</h1>");
